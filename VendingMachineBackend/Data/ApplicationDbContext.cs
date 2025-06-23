@@ -10,6 +10,7 @@ namespace VendingMachineBackend.Data
         public DbSet<Coin> Coins { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<MachineLock> MachineLocks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
