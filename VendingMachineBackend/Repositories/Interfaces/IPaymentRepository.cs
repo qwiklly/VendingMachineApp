@@ -5,6 +5,6 @@ namespace VendingMachineBackend.Repositories.Interfaces
 {
     public interface IPaymentRepository
     {
-        Task<GenericResponse<PaymentResultDto>> PayAsync(PaymentDto dto);
+        Task<GenericResponse<PaymentResultDto>> PayBatchAsync(BatchPaymentDto dto);
     }
 }
