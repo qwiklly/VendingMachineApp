@@ -8,10 +8,15 @@ namespace VendingMachineBackend.Controllers
     [ApiController]
     public class PaymentController(IPaymentRepository _paymentRepo) : ControllerBase
     {
+        /// <summary>
+        /// Оплатить заказ (групповая оплата нескольких товаров).
+        /// </summary>
+        /// <param name="dto">Данные для оплаты.</param>
         [HttpPost]
-        public async Task<ActionResult> Pay([FromBody] PaymentDto dto)
+        [Route("batch")]
+        public async Task<ActionResult> PayBatch([FromBody] BatchPaymentDto dto)
         {
-            var result = await _paymentRepo.PayAsync(dto);
+            var result = await _paymentRepo.PayBatchAsync(dto);
             return Ok(result);
         }
     }

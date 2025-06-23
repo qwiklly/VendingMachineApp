@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using static VendingMachineBackend.Responses.CustomResponses;
-using VendingMachineBackend.DTOs;
 using VendingMachineBackend.Repositories.Interfaces;
 
 namespace VendingMachineBackend.Controllers
@@ -9,22 +7,33 @@ namespace VendingMachineBackend.Controllers
     [ApiController]
     public class BrandController(IBrandRepository _brandRepository) : ControllerBase
     {
+        /// <summary>
+        /// Получить список всех брендов.
+        /// </summary>
         [HttpGet]
-        public async Task<ActionResult<GenericResponse<List<BrandDto>>>> GetAll()
+        public async Task<ActionResult> GetAll()
         {
             var result = await _brandRepository.GetAllAsync();
             return Ok(result);
         }
 
+        /// <summary>
+        /// Добавить новый бренд.
+        /// </summary>
+        /// <param name="name">Название бренда.</param>
         [HttpPost]
-        public async Task<ActionResult<BaseResponse>> Add([FromBody] string name)
+        public async Task<ActionResult> Add([FromBody] string name)
         {
             var result = await _brandRepository.AddAsync(name);
             return Ok(result);
         }
 
+        /// <summary>
+        /// Удалить бренд по ID.
+        /// </summary>
+        /// <param name="id">ID бренда.</param>
         [HttpDelete("{id}")]
-        public async Task<ActionResult<BaseResponse>> Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             var result = await _brandRepository.DeleteAsync(id);
             return Ok(result);
