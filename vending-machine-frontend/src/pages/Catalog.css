@@ -41,7 +41,7 @@
 }
 
 .buttonDisabled {
-  background-color: #9ca3af; /* gray-400 */
+  background-color: #9ca3af;
   cursor: not-allowed;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .catalogItem {
-  border: 1px solid #d1d5db; /* gray-300 */
+  border: 1px solid #d1d5db;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
