@@ -17,7 +17,7 @@ export const App = () => {
         setLocked(true);
       } else {
         const success = await lockMachine();
-        setLocked(!success);
+          setLocked(success ? false : true);
       }
     };
 
