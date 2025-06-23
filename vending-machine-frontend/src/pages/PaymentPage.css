@@ -1,0 +1,111 @@
+.paymentTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  table-layout: fixed;
+}
+
+.paymentTable th, .paymentTable td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #d1d5db;
+  text-align: left;
+}
+
+.coinCircle {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #111827;
+  text-align: center;
+  line-height: 32px;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.countControl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countControl input {
+  width: 3rem;
+  text-align: center;
+  padding: 0.3rem;
+}
+
+.countControl button {
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.paymentFooter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1.4rem;
+}
+
+.backButton {
+  background-color: #facc15;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.payButton {
+  background-color: #16a34a;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.payButton:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.inserted.notEnough {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.inserted.enough {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.paymentRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.paymentStatusRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+}
+
+.totalPrice {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: bold;
+}
+
+.paymentStatus {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+.successContainer {
+  text-align: center;
+  padding: 30px;
+  font-size: 30px;
+}
+
+.greenText {
+  color: green;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.errorText {
+  color: red;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.coinsList {
+  margin-top: 10px;
+  font-size: 23px;
+}
+
+.catalogButton {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  margin-top: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
