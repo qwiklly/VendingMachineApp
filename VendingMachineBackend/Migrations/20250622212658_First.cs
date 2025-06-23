@@ -25,6 +25,17 @@ namespace VendingMachineBackend.Migrations
                     table.PrimaryKey("PK_Brands", x => x.Id);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Brands",
+                columns: ["Id", "Name"],
+                values: new object[,]
+                {
+                    { 1, "Cola" },
+                    { 2, "Sprite" },
+                    { 3, "Fanta" },
+                    { 4, "DrPepper" }
+                });
+
             migrationBuilder.CreateTable(
                 name: "Coins",
                 columns: table => new
@@ -37,6 +48,20 @@ namespace VendingMachineBackend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Coins", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MachineLocks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    IsLocked = table.Column<bool>(type: "boolean", nullable: false),
+                    LockedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MachineLocks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -123,6 +148,9 @@ namespace VendingMachineBackend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Drinks");
+
+            migrationBuilder.DropTable(
+                name: "MachineLocks");
 
             migrationBuilder.DropTable(
                 name: "OrderItems");

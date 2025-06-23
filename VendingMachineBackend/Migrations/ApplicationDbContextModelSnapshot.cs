@@ -22,7 +22,7 @@ namespace VendingMachineBackend.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("VendingMachine.Models.Brand", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.Brand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +39,7 @@ namespace VendingMachineBackend.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.Coin", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.Coin", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace VendingMachineBackend.Migrations
                     b.ToTable("Coins");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.Drink", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.Drink", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,26 @@ namespace VendingMachineBackend.Migrations
                     b.ToTable("Drinks");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.Order", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.MachineLock", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("LockedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MachineLocks");
+                });
+
+            modelBuilder.Entity("VendingMachineBackend.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -108,7 +127,7 @@ namespace VendingMachineBackend.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.OrderItem", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.OrderItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,9 +159,9 @@ namespace VendingMachineBackend.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.Drink", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.Drink", b =>
                 {
-                    b.HasOne("VendingMachine.Models.Brand", "Brand")
+                    b.HasOne("VendingMachineBackend.Models.Brand", "Brand")
                         .WithMany("Drinks")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -151,9 +170,9 @@ namespace VendingMachineBackend.Migrations
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.OrderItem", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.OrderItem", b =>
                 {
-                    b.HasOne("VendingMachine.Models.Order", "Order")
+                    b.HasOne("VendingMachineBackend.Models.Order", "Order")
                         .WithMany("Items")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -162,12 +181,12 @@ namespace VendingMachineBackend.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.Brand", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.Brand", b =>
                 {
                     b.Navigation("Drinks");
                 });
 
-            modelBuilder.Entity("VendingMachine.Models.Order", b =>
+            modelBuilder.Entity("VendingMachineBackend.Models.Order", b =>
                 {
                     b.Navigation("Items");
                 });
